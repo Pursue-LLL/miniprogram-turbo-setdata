@@ -1,6 +1,6 @@
 {
   "name": "miniprogram-turbo-setdata",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "main": "./dist/index.min.js",
   "scripts": {
     "build": "rollup -c"
@@ -13,9 +13,9 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/wall-wxk/ping-url.git"
+    "url": "https://github.com/Pursue-LLL/miniprogram-turbo-setdata.git"
   },
-  "homepage": "https://juejin.cn/user/817692379722311",
+  "homepage": "https://juejin.cn/post/7160475467362304030",
   "author": {
     "name": "CorderLiu",
     "email": "xxiaoer2018@163.com",

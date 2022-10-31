@@ -1,4 +1,5 @@
-/* eslint-disable */
+/* eslint-disable no-plusplus */
+
 import { isPlainObjectOrArray } from './typeUtils';
 
 /**

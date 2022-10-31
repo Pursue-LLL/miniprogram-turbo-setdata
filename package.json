@@ -1,0 +1,41 @@
+{
+  "name": "miniprogram-turbo-setdata",
+  "version": "1.0.0",
+  "main": "./dist/index.min.js",
+  "scripts": {
+    "build": "rollup -c"
+  },
+  "keywords": [
+    "miniprogram",
+    "优化 setData",
+    "setData",
+    "小程序 watch"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wall-wxk/ping-url.git"
+  },
+  "homepage": "https://juejin.cn/user/817692379722311",
+  "author": {
+    "name": "CorderLiu",
+    "email": "xxiaoer2018@163.com",
+    "url": "https://juejin.cn/user/817692379722311"
+  },
+  "license": "MIT",
+  "description": "小程序 setData 增强库",
+  "typeRoots": [
+    "./node_modules/miniprogram-api-typings"
+  ],
+  "type":"module",
+  "files": [
+    "dist",
+    "LICENSE"
+  ],
+  "devDependencies": {
+    "rollup": "^2.0.0",
+    "rollup-plugin-license": "^2.8.2",
+    "rollup-plugin-terser": "^7.0.2",
+    "miniprogram-api-typings": "^3.6.0"
+  },
+  "dependencies": {}
+}

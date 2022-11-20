@@ -473,6 +473,34 @@ this.setData({obj: this.viewModal.obj}, null, {useNative: true})
 
 当然不改动也完全没问题，内部也做好了兼容，使用 `useNative` 的好处是让工具直接忽略掉， **不会再做多余的 diff 操作**。
 
+#### 2. 使用 setData 同步维护渲染层的数据状态
+
+例如，这种场景：
+
+一个 Dialog 组件，由 `show` 属性控制展示隐藏，但是组件内部也提供了方法来关闭弹窗，即组件内部自己更改了它的 `show` 属性，如下，当你使用 `showDialog：true` 打开对话框后，操作按钮关闭了对话框，但此时页面的 `showDialog` 字段值还是 `true`，当你再次 调用 `setData({showDialog: true})` 的时候，工具会判定属性未发生改变此次 `setData` 并不会生效，所以记得**同步维护渲染层的数据状态**，在 onClose 回调中更新一下 `setData({showDialog: false})`。
+
+``` html
+<dialog show="{{showDialog}}" bind:onclose="onClose"></dialog>
+```
+#### 3. 遇到问题善用日志选项排查，它能帮你定位 90% 的问题。
+
+例如上例，当你使用日志选项中的 logDuplicateData 时，便会立即发现 setData({showDialog: true}) 重复了，所以本次 setData 没有生效。
+
+``` js
+  turboOptions: {
+    useSyncData: true, // 是否需要在 setData 后同步获取新值（全局配置）
+    // logNative: true,  // 是否输出原生表现日志，开启后会使用原生 setData 并输出耗时和次数，可用于对比优化效果
+    logTimeConsuming:  true, // 是否输出优化后的 setData 耗时和次数
+    logUpdatedData: true, // 是否输出本次 setData 被更新的数据(合并且 diff 后的)
+    logDuplicateData: true, // 是否输出被筛选出的重复数据
+  }
+```
+
+即使在排查日志后也解决不了问题，也有终极方案: `useNative` 选项，该选项会使用原生 setData，最后如果你觉得你遇到的问题是一个 bug，别忘了提 issue 给我。
+
+``` js
+this.setData({}, null, {useNative: true})
+```
 
 > 更多细节参见
 > 

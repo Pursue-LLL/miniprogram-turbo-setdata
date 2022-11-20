@@ -38,7 +38,7 @@ export default class TurboSetData {
 
   // 增强 setData
   private turbo() {
-    log('turbo setData has taken effect, for more options to configure, see', 'https://juejin.cn/post/7160475467362304030');
+    log('turbo setData has taken effect ');
 
     const instance = this.instance;
     // 替换 setData 方法为修改后的

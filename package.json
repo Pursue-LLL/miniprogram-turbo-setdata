@@ -1,6 +1,6 @@
 {
   "name": "miniprogram-turbo-setdata",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "main": "./dist/index.min.js",
   "scripts": {
     "build": "rollup -c"
@@ -9,7 +9,8 @@
     "miniprogram",
     "优化 setData",
     "setData",
-    "小程序 watch"
+    "小程序 watch",
+    "小程序优化"
   ],
   "repository": {
     "type": "git",
@@ -26,16 +27,19 @@
   "typeRoots": [
     "./node_modules/miniprogram-api-typings"
   ],
-  "type":"module",
+  "type": "module",
+  "types": "lib/index.d.ts",
   "files": [
     "dist",
-    "LICENSE"
+    "LICENSE",
+    "lib/index.d.ts"
   ],
   "devDependencies": {
+    "miniprogram-api-typings": "^3.6.0",
     "rollup": "^2.0.0",
     "rollup-plugin-license": "^2.8.2",
     "rollup-plugin-terser": "^7.0.2",
-    "miniprogram-api-typings": "^3.6.0"
+    "rollup-plugin-typescript2": "^0.34.1"
   },
   "dependencies": {}
 }
